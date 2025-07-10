@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vedant Kandge | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem; /* Navbar height */
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F5F7FA; /* Light theme default background */
+        color: #333333; /* Light theme default text */
+        overflow-x: hidden; /* Prevent horizontal scroll on animations */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .dark body {
+        background-color: #1A1F36;
+        color: #F5F7FA;
+      }
+      .dark .text-glow {
+        text-shadow: 0 0 8px rgba(255, 122, 0, 0.5), 0 0 16px rgba(255, 122, 0, 0.3);
+      }
+      .gradient-button {
+        background-color: #FF7A00;
+        transition: all 0.3s ease;
+      }
+      .gradient-button:hover {
+        background-color: #E06600;
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.4);
+        transform: translateY(-2px);
+      }
+
+      /* Scroll Down Indicator */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+        50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+      }
+      .animate-bounce-slow {
+        animation: bounce 2s infinite;
+      }
+
+      /* Blinking Cursor */
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+      .cursor-blink {
+        animation: blink 1s step-end infinite;
+      }
+      
+      /* 3D Card Flip */
+      .perspective {
+        perspective: 1000px;
+      }
+      .transform-style-3d {
+        transform-style: preserve-3d;
+      }
+      .rotate-y-180 {
+        transform: rotateY(180deg);
+      }
+      .backface-hidden {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      
+      @keyframes pulse-fade {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+      .animate-pulse-fade {
+        animation: pulse-fade 4s infinite;
+      }
+
+      /* Animated Gradient Border for Profile Picture */
+      @keyframes gradient-rotate {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .gradient-border-bg {
+        background: linear-gradient(60deg, #00BFA5, #FF7A00, #00BFA5);
+        background-size: 300% 300%;
+        animation: gradient-rotate 6s ease infinite;
+      }
+
+      /* Keyframe Animations */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translate3d(0, 40px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translate3d(0, -40px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      @keyframes fadeInLeft {
+        from { opacity: 0; transform: translate3d(-40px, 0, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      @keyframes fadeInRight {
+        from { opacity: 0; transform: translate3d(40px, 0, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      
+      .animate-fade-in-up { animation: fadeInUp 0.8s ease-out both; }
+      .animate-fade-in-down { animation: fadeInDown 0.8s ease-out both; }
+      .animate-fade-in-left { animation: fadeInLeft 0.8s ease-out both; }
+      .animate-fade-in-right { animation: fadeInRight 0.8s ease-out both; }
+
+      /* Animation Delays */
+      .delay-200 { animation-delay: 200ms; }
+      .delay-300 { animation-delay: 300ms; }
+      .delay-400 { animation-delay: 400ms; }
+      .delay-500 { animation-delay: 500ms; }
+      .delay-600 { animation-delay: 600ms; }
+      .delay-700 { animation-delay: 700ms; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.525.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
