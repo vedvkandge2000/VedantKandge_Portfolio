@@ -9,6 +9,12 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ id }) => {
+  const handleButtonClick = () => {
+    if ((window as any).triggerConfetti) {
+      (window as any).triggerConfetti();
+    }
+  };
+
   return (
     <section id={id} className="relative min-h-screen flex items-center justify-center bg-[#1A1F36] p-8 overflow-hidden">
       <PlexusBackground />
@@ -26,27 +32,36 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
           Crafting scalable solutions with modern technologies—from microservices to machine learning.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-6 opacity-0 animate-fade-in-up delay-700">
-            <a href="#contact" className="gradient-button text-white font-semibold py-3 px-6 rounded-lg shadow-lg">
+            <a 
+              href="#contact" 
+              className="gradient-button text-white font-semibold py-3 px-6 rounded-lg shadow-lg interactive"
+              onClick={handleButtonClick}
+            >
                 Contact Me
             </a>
             <div className="flex items-center space-x-6">
-                <a href={`mailto:${socialLinks.email}`} aria-label="Email" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300">
+                <a href={`mailto:${socialLinks.email}`} aria-label="Email" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300 interactive">
                 <Mail size={28} />
                 </a>
-                <a href={`https://${socialLinks.linkedin}`} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300">
+                <a href={`${socialLinks.linkedin}`} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300 interactive">
                 <Linkedin size={28} />
                 </a>
-                <a href={`https://${socialLinks.github}`} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300">
+                <a href={`${socialLinks.github}`} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300 interactive">
                 <Github size={28} />
                 </a>
-                <a href={`https://${socialLinks.leetcode}`} target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300">
+                <a href={`${socialLinks.leetcode}`} target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-gray-400 hover:text-[#FF7A00] hover:scale-110 transition-all duration-300 interactive">
                 <Code size={28} />
                 </a>
             </div>
         </div>
       </div>
       
-      <a href="#about" aria-label="Scroll to about section" className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-gray-400 hover:text-[#FF7A00] transition-colors animate-bounce-slow">
+      <a 
+        href="#about" 
+        aria-label="Scroll to about section" 
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-gray-400 hover:text-[#FF7A00] transition-colors animate-bounce-slow interactive"
+        onClick={handleButtonClick}
+      >
         <ChevronsDown size={32} />
       </a>
     </section>

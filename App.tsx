@@ -8,10 +8,12 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import InteractiveEffects from './components/InteractiveEffects';
 
 const App: React.FC = () => {
   return (
     <div className="bg-[#1A1F36] min-h-screen relative transition-colors duration-300">
+      <InteractiveEffects />
       <Navbar />
       <main>
         <Hero id="home" />

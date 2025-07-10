@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#1A1F36]/80 backdrop-blur-lg border-b border-gray-800/50">
         <nav className="container mx-auto max-w-6xl px-8 py-4 flex justify-between items-center">
-          <a href="#home" onClick={handleLinkClick} className="text-xl font-bold text-white hover:text-[#FF7A00] transition-colors">
+          <a href="#home" onClick={handleLinkClick} className="text-xl font-bold text-white hover:text-[#FF7A00] transition-colors interactive">
             Vedant Kandge
           </a>
           <div className="hidden md:flex items-center space-x-6">
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-medium text-[#00BFA5] hover:text-[#FF7A00] transition-colors"
+                className="font-medium text-[#00BFA5] hover:text-[#FF7A00] transition-colors interactive"
               >
                 {link.name}
               </a>
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
-              className="text-white z-50 relative"
+              className="text-white z-50 relative interactive"
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
             key={link.name}
             href={link.href}
             onClick={handleLinkClick}
-            className="text-3xl font-semibold text-[#00BFA5] hover:text-[#FF7A00] transition-colors"
+            className="text-3xl font-semibold text-[#00BFA5] hover:text-[#FF7A00] transition-colors interactive"
           >
             {link.name}
           </a>

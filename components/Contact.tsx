@@ -8,6 +8,12 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ id }) => {
+  const handleButtonClick = () => {
+    if ((window as any).triggerConfetti) {
+      (window as any).triggerConfetti();
+    }
+  };
+
   return (
     <section id={id} className="py-20 px-8 bg-[#F5F7FA] dark:bg-[#1A1F36] transition-colors duration-300">
       <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
@@ -31,10 +37,20 @@ const Contact: React.FC<ContactProps> = ({ id }) => {
                 </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-                <a href={`mailto:${socialLinks.email}`} className="gradient-button text-white font-semibold py-3 px-6 rounded-lg shadow-lg">
+                <a 
+                  href={`mailto:${socialLinks.email}`} 
+                  className="gradient-button text-white font-semibold py-3 px-6 rounded-lg shadow-lg interactive"
+                  onClick={handleButtonClick}
+                >
                     Get in Touch
                 </a>
-                <a href="https://drive.google.com/file/d/1oRfqP1kySlYo373ny3Pg0_EEa10cOJ-y/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-[#00BFA5] hover:bg-[#00A991] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-0.5">
+                <a 
+                  href="https://drive.google.com/file/d/1oRfqP1kySlYo373ny3Pg0_EEa10cOJ-y/view?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-[#00BFA5] hover:bg-[#00A991] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-0.5 interactive"
+                  onClick={handleButtonClick}
+                >
                     View Resume
                 </a>
             </div>

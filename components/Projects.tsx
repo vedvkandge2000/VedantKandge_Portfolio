@@ -9,6 +9,12 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ id }) => {
+  const handleProjectClick = () => {
+    if ((window as any).triggerConfetti) {
+      (window as any).triggerConfetti();
+    }
+  };
+
   return (
     <section id={id} className="py-20 px-8 bg-[#F5F7FA] dark:bg-[#1A1F36] transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
@@ -28,11 +34,14 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
             <AnimatedWrapper key={index} delay={`delay-${200 + index * 100}`}>
-                <div className="bg-white dark:bg-[#1F243A] p-6 rounded-lg border border-gray-200 dark:border-gray-700/50 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-xl dark:hover:shadow-orange-500/30 h-full">
+                <div 
+                  className="bg-white dark:bg-[#1F243A] p-6 rounded-lg border border-gray-200 dark:border-gray-700/50 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-xl dark:hover:shadow-orange-500/30 h-full interactive cursor-pointer"
+                  onClick={handleProjectClick}
+                >
                     <div className="flex justify-between items-start mb-2">
                         <h4 className="text-xl font-bold text-[#1A1F36] dark:text-white flex-1 pr-2">{project.title}</h4>
                         {project.githubUrl && (
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`GitHub repository for ${project.title}`} className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex-shrink-0">
+                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`GitHub repository for ${project.title}`} className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex-shrink-0 interactive" onClick={(e) => e.stopPropagation()}>
                                 <Github size={24} />
                             </a>
                         )}
